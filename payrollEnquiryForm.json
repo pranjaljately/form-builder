@@ -1,0 +1,46 @@
+{
+  "title": "Query Form",
+  "version": "1.0.0",
+  "subtitle": "Please use this form for any Payroll related enquiries.",
+  "fields": [
+    {
+      "id": "field-id-1",
+      "label": "What does your query relate to?",
+      "name": "queryType",
+      "type": "select",
+      "responseOptions": [
+        { "id": "option1", "label": "Incorrect Pay" },
+        { "id": "option2", "label": "Missing Expense" },
+        { "id": "option3", "label": "Change of Bank Details" },
+        { "id": "option4", "label": "Change of Address" },
+        { "id": "option5", "label": "Other" }
+      ],
+      "validation": {
+        "required": true,
+        "requiredMessage": "QueryType is required"
+      }
+    },
+    {
+      "id": "field-id-2",
+      "label": "Query",
+      "name": "query",
+      "type": "textarea",
+      "validation": {
+        "required": true,
+        "requiredMessage": "Query is required"
+      }
+    },
+    {
+      "id": "field-id-3",
+      "label": "Date of payslip being queried",
+      "name": "payslipDate",
+      "type": "date",
+      "validation": {
+        "requiredIf": {
+          "queryType": ["option1", "option2"]
+        },
+        "requiredMessage": "Payslip date is required when {value} is selected"
+      }
+    }
+  ]
+}
